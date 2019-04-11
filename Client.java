@@ -11,8 +11,8 @@ public class Client {
 
 	public void write () {
 		try {
-			PrintWriter writer = new PrintWriter(new File(fichier));
-			writer.println(message);
+			FileWriter writer = new FileWriter(fichier, true);
+			writer.write(message+"\n");
 			writer.close();
 		} catch(Exception e) {
 			System.out.println(e.toString());

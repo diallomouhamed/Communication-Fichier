@@ -38,8 +38,10 @@ public class Serveur {
 				writer.write("Il fait jour.\n");
 			} else if (last.equals("Bonsoir")) {
 				writer.write("Il fait nuit.\n");
+			} else {
+				writer.write("Je n'ai pas compris.\n");
 			}
-			
+
 			writer.close();
 		} catch(Exception e) {
 			System.out.println(e.toString());

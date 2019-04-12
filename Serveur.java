@@ -19,4 +19,30 @@ public class Serveur {
 			System.out.println(e.toString());
 		}
 	}
+
+	public void respond () {
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fichier)));
+			String ligne;
+			String last = "";
+
+			while ((ligne=reader.readLine()) != null){
+				last = ligne;
+			}
+
+			reader.close();
+
+			FileWriter writer = new FileWriter(fichier, true);
+
+			if (last.equals("Bonjour")) {
+				writer.write("Il fait jour.\n");
+			} else if (last.equals("Bonsoir")) {
+				writer.write("Il fait nuit.\n");
+			}
+			
+			writer.close();
+		} catch(Exception e) {
+			System.out.println(e.toString());
+		}
+	}
 }
